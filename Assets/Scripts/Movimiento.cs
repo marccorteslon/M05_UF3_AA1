@@ -24,7 +24,6 @@ public class Movimiento : MonoBehaviour
 
     void Update()
     {
-        // Entrada horizontal
         horizontal = Input.GetAxisRaw("Horizontal");
 
         // Comprobar si está tocando el suelo
@@ -36,13 +35,11 @@ public class Movimiento : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
 
-        // Flip visual
         if (horizontal > 0)
             transform.localScale = new Vector3(1, 1, 1);
         else if (horizontal < 0)
             transform.localScale = new Vector3(-1, 1, 1);
 
-        // Cámara sigue al jugador con un offset horizontal
         Vector3 offset = new Vector3(horizontal * maxCameraOffset, 0f, 0f);
         targetCameraPosition = transform.position + offset;
         targetCameraPosition.z = cameraTransform.position.z;

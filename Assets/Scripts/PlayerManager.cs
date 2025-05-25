@@ -14,7 +14,7 @@ public class PlayerManager : MonoBehaviour
     private void Start()
     {
         currentLives = maxLives;
-        // Iniciar el checkpoint en la posición inicial del jugador
+     
         respawnPosition = transform.position;
     }
 
@@ -36,7 +36,7 @@ public class PlayerManager : MonoBehaviour
 
         if (currentLives <= 0)
         {
-            Debug.Log("¡Sin vidas! Reapareciendo...");
+            Debug.Log("No quedan vidas");
             currentLives = maxLives;
             Respawn();
         }
@@ -44,7 +44,7 @@ public class PlayerManager : MonoBehaviour
 
     public void Die()
     {
-        Debug.Log("Has muerto. Reapareciendo...");
+        Debug.Log("Has muerto");
         currentLives = maxLives;
         Respawn();
     }
